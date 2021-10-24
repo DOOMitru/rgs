@@ -21,13 +21,23 @@ const App = () => {
     const SelectedApp = apps[selectedApp].app
 
     return (
-        <>
-            <AppSelector
-                apps={apps}
-                select={app => setSelectedApp(app)}>
-            </AppSelector>
-            <SelectedApp></SelectedApp>
-        </>
+        <div style={{
+            display: 'grid',
+            gridTemplateColumns: '200px 1fr',
+            gridTemplateAreas: `
+                'menu content'
+            `
+        }}>
+            <div style={{ gridArea: 'menu' }}>
+                <AppSelector
+                    apps={apps}
+                    select={app => setSelectedApp(app)}>
+                </AppSelector>
+            </div>
+            <div style={{ gridArea: 'content' }}>
+                <SelectedApp></SelectedApp>
+            </div>
+        </div>
     )
 }
 
