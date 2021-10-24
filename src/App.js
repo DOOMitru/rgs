@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import CardListApp from './CardListApp/CardListApp'
+import StarMatchApp from './StarMatchApp/StarMatchApp'
+
+import AppSelector from './AppSelector'
+
+const apps = {
+    cardList: {
+        title: 'GitHub Cards App',
+        app: CardListApp,
+    },
+    starMatch: {
+        title: 'Star Match Game',
+        app: StarMatchApp
+    }
 }
 
-export default App;
+const App = () => {
+    const [selectedApp, setSelectedApp] = useState('cardList')
+    const SelectedApp = apps[selectedApp].app
+
+    return (
+        <>
+            <AppSelector
+                apps={apps}
+                select={app => setSelectedApp(app)}>
+            </AppSelector>
+            <SelectedApp></SelectedApp>
+        </>
+    )
+}
+
+export default App
