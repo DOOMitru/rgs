@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import CardListApp from './CardListApp/CardListApp'
 import StarMatchApp from './StarMatchApp/StarMatchApp'
+import DesignReactComponentsApp from './DesignReactComponentsApp/DesignReactComponentsApp'
 
 import AppSelector from './AppSelector'
 
@@ -13,6 +14,10 @@ const apps = {
     starMatch: {
         title: 'Star Match Game',
         app: StarMatchApp
+    },
+    designReactCmps: {
+        title: 'Design React Components',
+        app: DesignReactComponentsApp
     }
 }
 
